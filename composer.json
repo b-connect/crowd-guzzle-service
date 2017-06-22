@@ -1,5 +1,5 @@
 {
-    "name": "bconnect/crowd",
+    "name": "bconnect/crowd-guzzle-service",
     "type": "library",
     "require": {
         "guzzlehttp/guzzle": "~6.2",
