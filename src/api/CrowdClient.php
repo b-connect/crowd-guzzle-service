@@ -4,7 +4,6 @@
  * 
  * Restclient.
  */
-
 namespace bconnect\crowd\api;
 
 use GuzzleHttp\Client;
@@ -13,10 +12,6 @@ use GuzzleHttp\Command\Guzzle\GuzzleClient;
 use GuzzleHttp\HandlerStack;
 use Psr\Http\Message\RequestInterface;
 use GuzzleHttp\Cookie\SessionCookieJar;
-use GuzzleHttp\Middleware;
-use GuzzleHttp\MessageFormatter;
-use Monolog\Logger;
-
 
 /**
  * Client.
