@@ -1,6 +1,8 @@
 {
     "name": "bconnect/crowd-guzzle-service",
     "type": "library",
+    "description": "Add guzzle service description for atlassian crowd",
+    "homepage": "https://github.com/b-connect/crowd-guzzle-service",
     "require": {
         "guzzlehttp/guzzle": "~6.2",
         "guzzlehttp/guzzle-services": "^1.1",
