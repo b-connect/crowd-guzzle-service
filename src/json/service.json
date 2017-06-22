@@ -1,0 +1,341 @@
+{
+  "name": "Foo",
+  "apiVersion": "2012-10-14",
+  "cookies": true,
+  "baseUrl": "http://localhost:8095/crowd/rest",
+  "description": "Foo is an API that allows you to Baz Bar",
+  "operations": {
+    "search": {
+      "httpMethod": "GET",
+      "uri": "usermanagement/{api_version}/search",
+      "summary": "Gets foo",
+      "responseClass": "BaseResponse",
+      "parameters": {
+        "api_version": {
+          "location": "uri",
+          "type": "string",
+          "static": true,
+          "default": "1"
+        },
+        "entity-type": {
+          "location": "query",
+          "type": "string",
+          "required": true
+        },
+        "expand": {
+          "location": "query",
+          "type": "string",
+          "required": false
+        },
+        "restriction": {
+          "location": "query",
+          "type": "string",
+          "required": false
+        }
+      }
+    },
+    "getUser": {
+      "httpMethod": "GET",
+      "uri": "usermanagement/{api_version}/user",
+      "summary": "Gets foo",
+      "responseClass": "UserResponse",
+      "parameters": {
+        "api_version": {
+          "location": "uri",
+          "type": "string",
+          "static": true,
+          "default": "1"
+       },
+       "username": {
+          "location": "query",
+          "type": "string",
+          "required": true
+        },
+        "expand": {
+          "location": "query",
+          "type": "string",
+          "required": false
+        }
+      }
+    },
+    "createUser": {
+      "httpMethod": "POST",
+      "uri": "usermanagement/{api_version}/user",
+      "summary": "Gets foo",
+      "responseClass": "UserResponse",
+      "parameters": {
+        "api_version": {
+          "location": "uri",
+          "type": "string",
+          "static": true,
+          "default": "1"
+       },
+       "name": {
+          "location": "json",
+          "type": "string",
+          "required": true
+        },
+        "active": {
+          "location": "json",
+          "type": "integer",
+          "default": 1
+        },
+        "firstName": {
+          "location": "json",
+          "type": "string",
+          "required": true,
+          "sentAs": "first-name"
+        },
+        "lastName": {
+          "location": "json",
+          "type": "string",
+          "required": true,
+          "sentAs": "last-name"
+        },
+        "displayName": {
+          "location": "json",
+          "type": "string",
+          "required": true,
+          "sentAs": "display-name"
+        },
+        "email": {
+          "location": "json",
+          "type": "string",
+          "required": true
+        },
+        "password": {
+          "location": "json",
+          "type": "array",
+          "required": true,
+          "sentAs": "encrypted-password"
+        },
+        "expand": {
+          "location": "query",
+          "type": "string",
+          "required": false
+        }
+      }
+    },
+    "getUserDirectGroups": {
+      "httpMethod": "GET",
+      "uri": "usermanagement/{api_version}/user/group/direct",
+      "summary": "Gets foo",
+      "responseClass": "BaseResponse",
+      "parameters": {
+        "api_version": {
+          "location": "uri",
+          "type": "string",
+          "static": true,
+          "default": "1"
+       },
+       "username": {
+          "location": "query",
+          "type": "string",
+          "required": true
+        },
+        "start-index": {
+          "location": "query",
+          "type": "integer",
+          "required": false
+        },
+        "max-results": {
+          "location": "query",
+          "type": "integer",
+          "required": false
+        },
+        "groupname": {
+          "location": "query",
+          "type": "string",
+          "required": false
+        },
+        "expand":{
+          "location": "query",
+          "required": false
+        }
+      }
+    },
+    "getUserNestedGroups": {
+      "httpMethod": "GET",
+      "uri": "usermanagement/{api_version}/user/group/nested",
+      "summary": "Gets foo",
+      "responseClass": "BaseResponse",
+      "parameters": {
+        "api_version": {
+          "location": "uri",
+          "type": "string",
+          "static": true,
+          "default": "1"
+       },
+       "username": {
+          "location": "query",
+          "type": "string",
+          "required": true
+        },
+        "start-index": {
+          "location": "query",
+          "type": "integer",
+          "required": false
+        },
+        "max-results": {
+          "location": "query",
+          "type": "integer",
+          "required": false
+        },
+        "groupname": {
+          "location": "query",
+          "type": "string",
+          "required": false
+        },
+        "expand":{
+          "location": "query",
+          "required": false
+        }
+      }
+    },
+    "isUserInDirectGroup": {
+      "httpMethod": "GET",
+      "uri": "usermanagement/{api_version}/user/group/direct",
+      "summary": "Gets foo",
+      "responseClass": "BaseResponse",
+      "parameters": {
+        "api_version": {
+          "location": "uri",
+          "type": "string",
+          "static": true,
+          "default": "1"
+       },
+       "username": {
+          "location": "query",
+          "type": "string",
+          "required": true
+        },
+        "groupname": {
+          "location": "query",
+          "type": "string",
+          "required": true
+        }
+      }
+    },
+    "isUserInNestedGroup": {
+      "httpMethod": "GET",
+      "uri": "usermanagement/{api_version}/user/group/nested",
+      "summary": "Gets foo",
+      "responseClass": "BaseResponse",
+      "parameters": {
+        "api_version": {
+          "location": "uri",
+          "type": "string",
+          "static": true,
+          "default": "1"
+       },
+       "username": {
+          "location": "query",
+          "type": "string",
+          "required": true
+        },
+        "groupname": {
+          "location": "query",
+          "type": "string",
+          "required": true
+        }
+      }
+    },
+    "authentication": {
+      "httpMethod": "POST",
+      "uri": "usermanagement/{api_version}/authentication",
+      "summary": "Authenticate",
+      "responseClass": "UserResponse",
+      "parameters": {
+        "username": {
+          "location": "query",
+          "type": "string",
+          "required": true
+        },
+        "password": {
+          "location": "json",
+          "type": "string",
+          "required": true,
+          "sentAs": "value"
+        },
+        "api_version": {
+          "location": "uri",
+          "type": "string",
+          "static": true,
+          "default": "1"
+        }
+      }
+    }
+  },
+  "models" : {
+    "SearchResponse": {
+      "type": "object",
+      "additionalProperties": {
+        "location": "json"
+      }
+    },
+    "BaseResponse": {
+      "type": "object",
+      "additionalProperties": {
+        "location": "json"
+      }
+    },
+    "UserResponse": {
+      "type": "object",
+      "properties": {
+        "link": {
+          "type": "object",
+          "location": "json"
+        },
+        "name": {
+          "type": "string",
+          "location": "json"
+        },
+        "password": {
+          "type": "object",
+          "location": "json"
+        },
+        "key": {
+          "type": "string",
+          "location": "json"
+        },
+        "active": {
+          "type": "integer",
+          "location": "json"
+        },
+        "firstName": {
+          "type": "string",
+          "location": "json",
+          "sentAs": "first-name"
+        },
+        "lastName": {
+          "type": "string",
+          "location": "json",
+          "sentAs": "last-name"
+        },
+        "displayName": {
+          "type": "string",
+          "location": "json",
+          "sentAs": "display-name"
+        },
+        "email": {
+          "type": "string",
+          "location": "json"
+        },
+        "created": {
+          "type": "integer",
+          "location": "json",
+          "sentAs": "created-date"
+        },
+        "update": {
+          "type": "integer",
+          "location": "json",
+          "sentAs": "update-date"
+        },
+       "status": {
+          "location": "statusCode",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}
