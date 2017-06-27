@@ -1,7 +1,7 @@
 <?php
 /**
  * @file contains rest client
- * 
+ *
  * Restclient.
  */
 namespace bconnect\crowd\api;
@@ -38,10 +38,11 @@ class CrowdClient extends GuzzleClient {
             ['baseUrl' => $config['base_uri']] + (array) json_decode(file_get_contents(__DIR__ . '/../json/service.json'), TRUE)
         );
         $jar = new SessionCookieJar('crowd_cookie_jar', true);
-        if (!$config['debug']) {
-            $config['debug'] = false;
+        $debug = false;
+        if (isset($config['debug']) && $config['debug'] === TRUE) {
+            $debug = true;
         }
-        $client = new Client(['handler'=>$handler_stack, 'cookies' => $jar, 'debug' => $config['debug']]);
+        $client = new Client(['handler'=>$handler_stack, 'cookies' => $jar, 'debug' => $debug]);
         return new static($client, $service_description, NULL, NULL, NULL, $config);
     }
 }
